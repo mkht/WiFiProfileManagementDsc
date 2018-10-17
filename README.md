@@ -74,7 +74,7 @@ Configuration Example2
 
 + **Example 3**: Remove WiFi profile
 ```Powershell
-Configuration Example2
+Configuration Example3
 {
     Import-DscResource -ModuleName WiFiProfileManagementDsc
     WiFiProfile RemoveWiFi
