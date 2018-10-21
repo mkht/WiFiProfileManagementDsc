@@ -1,6 +1,6 @@
 @{
 
-    ModuleVersion        = '0.1.0'
+    ModuleVersion        = '1.0.0'
 
     GUID                 = 'c3824c3c-46cd-4f04-9680-726fe07be098'
 
@@ -12,7 +12,13 @@
 
     PowerShellVersion    = '4.0'
 
-    RequiredModules      = @('WiFiProfileManagement')
+    RequiredModules      = @(
+        @{
+            ModuleName    = 'WiFiProfileManagement'
+            ModuleVersion = '0.5.0.0'
+            Guid          = '91ed6e00-7f98-4f49-84f5-c3ee1a10e4d0'
+        }
+    )
 
     FunctionsToExport    = @()
 

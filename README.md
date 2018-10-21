@@ -5,11 +5,10 @@ PowerShell DSC resource for manage WiFi profile.
 
 ----
 ## Installation
-Copy this repo folder to PSModulePath.
-<!-- You can install from [PowerShell Gallery](https://www.powershellgallery.com/packages/WiFiProfileManagementDsc/).
-```Powershell
+From [PowerShell Gallery](https://www.powershellgallery.com/packages/WiFiProfileManagementDsc/).
+```PowerShell
 Install-Module -Name WiFiProfileManagementDsc
-``` -->
+```
 
 ### Dependencies
 * [WiFiProfileManagement](https://github.com/jcwalker/WiFiProfileManagement) by jcwalker
@@ -67,7 +66,7 @@ Configuration Example2
         Encryption = 'AES'
         ConnectHiddenSSID = $true
         EAPType = 'PEAP'
-        TrustedRootCA = '041101cca5b336a9c6e50d173489f5929e1b4b00'  #optinal
+        TrustedRootCA = '041101cca5b336a9c6e50d173489f5929e1b4b00'  #optional
     }
 }
 ```
@@ -86,4 +85,9 @@ Configuration Example3
 ```
 
 ----
-## ChangeLog
+## Versions
+
+### Unreleased
+
+### 1.0.0
+  + First public release.
