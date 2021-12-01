@@ -34,6 +34,7 @@ function Get-TargetResource {
         EAPType           = $null
         ServerNames       = $null
         TrustedRootCA     = $null
+        AuthMode          = $null
         XmlProfile        = $null
         PassPhrase        = [string]::Empty
     }
@@ -57,6 +58,7 @@ function Get-TargetResource {
         if ($null -ne $currentProfile.EAPType) {
             $returnHash.ServerNames = $currentProfile.ServerNames
             $returnHash.TrustedRootCA = $currentProfile.TrustedRootCA
+            $returnHash.AuthMode = $currentProfile.AuthMode
         }
     }
 
@@ -118,6 +120,11 @@ function Test-TargetResource {
         $TrustedRootCA,
 
         [Parameter()]
+        [ValidateSet('machineOrUser', 'machine', 'user', 'guest')]
+        [System.String]
+        $AuthMode = 'machineOrUser',
+
+        [Parameter()]
         [System.String]
         $XmlProfile
     )
@@ -161,7 +168,7 @@ function Test-TargetResource {
 
         # Test only when 802.1X is specified
         if ($EAPType) {
-            $testProperties = ('ServerNames', 'TrustedRootCA')
+            $testProperties = ('ServerNames', 'TrustedRootCA', 'AuthMode')
             foreach ($property in $testProperties) {
                 if (-not ($currentState[$property] -ceq (Get-Variable -Name $property -ValueOnly))) {
                     Write-Verbose -Message $($LocalizedData.ProfilePropertyIsNotMatch -f $property)
@@ -230,6 +237,11 @@ function Set-TargetResource {
         $TrustedRootCA,
 
         [Parameter()]
+        [ValidateSet('machineOrUser', 'machine', 'user', 'guest')]
+        [System.String]
+        $AuthMode = 'machineOrUser',
+
+        [Parameter()]
         [System.String]
         $XmlProfile
     )
@@ -259,6 +271,7 @@ function Set-TargetResource {
             if ($EAPType) {
                 $paramHash.EAPType = $EAPType
                 $paramHash.ServerNames = $ServerNames
+                $paramHash.AuthMode = $AuthMode
                 if ($TrustedRootCA) {
                     $paramHash.TrustedRootCA = $TrustedRootCA
                 }

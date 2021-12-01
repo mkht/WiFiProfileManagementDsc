@@ -12,6 +12,7 @@ class WiFiProfile : OMI_BaseResource
     [Write, ValueMap{"PEAP", "TLS"}, Values{"PEAP", "TLS"}] String EAPType;
     [Write] String ServerNames;
     [Write] String TrustedRootCA;
+    [Write, ValueMap{"machineOrUser", "machine", "user", "guest"}, Values{"machineOrUser", "machine", "user", "guest"}] String AuthMode;
     [Write] String XmlProfile;
     [Read] String PassPhrase;
 };

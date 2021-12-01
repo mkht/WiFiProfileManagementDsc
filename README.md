@@ -20,14 +20,15 @@ Install-Module -Name WiFiProfileManagementDsc
 ### WiFiProfile
 * **Ensure**: Ensures that the profile is Present or Absent.
 * **ProfileName**: The name of the profile. This is a Key property.
-* **ConnectionMode**: Indicates whether connection to the wireless LAN should be automatic ("auto") or initiated ("manual") by user. The default is "auto".
-* **Authentication**: Specifies the authentication method to be used to connect to the wireless LAN. ('open', 'shared', 'WPA', 'WPAPSK', 'WPA2', 'WPA2PSK')
-* **Encryption**: Sets the data encryption to use to connect to the wireless LAN. ('none', 'WEP', 'TKIP', 'AES')
+* **ConnectionMode**: Indicates whether connection to the wireless LAN should be automatic ('auto') or initiated ('manual') by user. The default is 'auto'.
+* **Authentication**: Specifies the authentication method to be used to connect to the wireless LAN. ('open', 'shared', 'WPA', 'WPAPSK', 'WPA2', 'WPA2PSK', 'WPA3SAE', 'WPA3ENT192', "OWE")
+* **Encryption**: Sets the data encryption to use to connect to the wireless LAN. ('none', 'WEP', 'TKIP', 'AES', 'GCMP256')
 * **Credential**: The network key or passpharse of the wireless profile in the form of a PSCredential.
 * **ConnectHiddenSSID**: Specifies whether the profile can connect to networks which does not broadcast SSID. The default is false.
 * **EAPType**: (Only 802.1X) Specifies the type of 802.1X EAP. You can select "PEAP"(aka MSCHAPv2) or "TLS".
 * **ServerNames**: (Only 802.1X) Specifies the server that will be connect to validate certification.
 * **TrustedRootCA**: (Only 802.1X) Specifies the certificate thumbprint of the Trusted Root CA.
+* **AuthMode**: (Only 802.1X) Specifies the type of credentials used for authentication. ('machineOrUser', 'machine', 'user', 'guest')
 * **XmlProfile**: The XML representation of the profile.
 
 
@@ -67,6 +68,7 @@ Configuration Example2
         ConnectHiddenSSID = $true
         EAPType = 'PEAP'
         TrustedRootCA = '041101cca5b336a9c6e50d173489f5929e1b4b00'  #optional
+        AuthMode = 'machine'  #optional
     }
 }
 ```
