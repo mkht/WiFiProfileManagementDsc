@@ -15,7 +15,7 @@
     RequiredModules      = @(
         @{
             ModuleName    = 'WiFiProfileManagement'
-            ModuleVersion = '0.5.0.0'
+            ModuleVersion = '1.0.0.0'
             Guid          = '91ed6e00-7f98-4f49-84f5-c3ee1a10e4d0'
         }
     )
